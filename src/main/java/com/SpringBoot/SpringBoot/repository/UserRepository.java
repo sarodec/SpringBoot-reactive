@@ -35,4 +35,10 @@ public class UserRepository {
                 .map(x->new User(x,"User-"+x));
     }
 
+    public Flux<User> getUsersList(){
+        return
+                Flux.range(0,10)
+                        .doOnNext(x-> System.out.println("Streaming .. "+x))
+                        .map(x->new User(x,"User-"+x));
+    }
 }
